@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const List = props => {
   return (
-    <div className='row container m-auto'>
+    <div className="row container m-auto">
       {
         props.items.map(item => {
           return (
@@ -11,7 +11,7 @@ const List = props => {
                 <div className="card-body">
                   <h2 className="card-title h5 mb-3">{item.title}</h2>
                   <div className="d-flex justify-content-between align-items-center">
-                    <Link className="btn btn-primary" to={`/${item.permalink}`}>Detail</Link>
+                    <Link className="btn btn-link" to={`/${item.permalink}`}>Detail</Link>
                     <p className="text-secondary mb-0">{item.updated_at}</p>
                   </div>
                 </div>
