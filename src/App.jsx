@@ -3,8 +3,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from "./components/Header";
 import List from "./components/List";
 import Item from "./components/Item";
+import GoodBtn from './components/GoodBtn';
 
-const App = () => {
+import { connect } from 'react-redux'
+import { increment } from "./actions";
+
+const App = props => {
   const [items, setItems] = useState([])
   useEffect(() => {
     fetch('./data.json')
@@ -22,4 +26,14 @@ const App = () => {
     </BrowserRouter>
   )
 }
-export default App
+// export default App
+
+const mapStateToProps = state => ({ value: state.count.value })
+
+const mapDispatchToProps = dispatch => ({
+  increment: () => dispatch(increment())
+})
+
+// const mapDispatchToProps = ({ increment })
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
